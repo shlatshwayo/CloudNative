@@ -2,10 +2,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kyverno-policies
+  namespace: argocd
 spec:
   destination:
     name: ''
-    namespace: argocd
+    namespace: kyverno-policies
     server: https://kubernetes.default.svc
   source:
     path: ''

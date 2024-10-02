@@ -2,15 +2,16 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kyverno
+  namespace: argocd
 spec:
   destination:
     name: ''
-    namespace: argocd
+    namespace: kyverno
     server: https://kubernetes.default.svc
   source:
     path: ''
     repoURL: https://artifacthub.io/packages/helm/kyverno/kyverno
-    targetRevision: 3.3.0-rc.1
+    targetRevision: 3.2.7
     chart: kyverno
   sources: []
   project: default
