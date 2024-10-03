@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kyverno-app
+  name: my-sql
   namespace: argocd
 spec:
   destination:
     name: ''
-    namespace: kyverno
+    namespace: my-sql
     server: https://kubernetes.default.svc
   source:
     path: ''
-    repoURL: https://kyverno.github.io/kyverno/
-    targetRevision: 3.2.7
-    chart: kyverno
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 11.1.17
+    chart: my-sql
   sources: []
   project: default
   syncPolicy:
@@ -21,4 +21,3 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-      - ServerSideApply=true
